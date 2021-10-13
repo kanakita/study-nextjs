@@ -2,15 +2,20 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import BootstrapButton from "../components/BootstrapButton";
 import ToggleButton from "../components/ToggleButton";
-import Accordion from "../components/Accordion";
 import TabButton from "../components/Tab/TabButton";
 import TabContents from "../components/Tab/TabContents";
 import TabContent from "../components/Tab/TabContent";
 import TabButtons from "../components/Tab/TabButtons";
 import Tab from "../components/Tab";
 
+import { Accordion, AccordionItem } from "../components/Accordion";
+import {SingularAccordion, SingularAccordionItem} from "../components/SingularAccordion";
+
 
 const Sandbox: NextPage = () => {
+
+
+
   return (
     <div>
       <Head>
@@ -32,21 +37,34 @@ const Sandbox: NextPage = () => {
           />}
 
           <h2>アコーディオン</h2>
-          <Accordion
-            title={"見出し見出し見出し"}
-            expanded
-          >
-            <p>aaaa</p>
-            <p>aaaa</p>
-            <p>aaaa</p>
+          <Accordion>
+            <AccordionItem label={"ラベル"}>aaa</AccordionItem>
+            <AccordionItem label={"ラベル2"}>2つめ</AccordionItem>
           </Accordion>
-          <Accordion
-            title={"見出し見出し見出し"}
-          >
-            <p>aaaa</p>
-            <p>aaaa</p>
-            <p>aaaa</p>
-          </Accordion>
+
+          <h2>アコーディオン2</h2>
+
+          <SingularAccordion
+            items={[
+              {
+                label: "ボタン1",
+                children: (
+                  <>
+                    <div>111</div>
+                  </>
+                )
+              },
+              {
+                label: "ボタン2",
+                children: (
+                  <>
+                    <div>111</div>
+                  </>
+                )
+              }
+            ]}
+            initialOpen="ボタン1"
+          />
 
           <h2>タブ切り替え</h2>
 
