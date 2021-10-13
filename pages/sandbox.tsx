@@ -2,14 +2,10 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import BootstrapButton from "../components/BootstrapButton";
 import ToggleButton from "../components/ToggleButton";
-import TabButton from "../components/Tab/TabButton";
-import TabContents from "../components/Tab/TabContents";
-import TabContent from "../components/Tab/TabContent";
-import TabButtons from "../components/Tab/TabButtons";
 import Tab from "../components/Tab";
 
 import { Accordion, AccordionItem } from "../components/Accordion";
-import {SingularAccordion, SingularAccordionItem} from "../components/SingularAccordion";
+import {SingularAccordion} from "../components/SingularAccordion";
 
 
 const Sandbox: NextPage = () => {
@@ -68,17 +64,19 @@ const Sandbox: NextPage = () => {
 
           <h2>タブ切り替え</h2>
 
-          <Tab activeId="first">
-            <TabButtons>
-              <TabButton label="タブ1" id="first" active={true}/>
-              <TabButton label="タブ2" id="second"/>
-            </TabButtons>
-
-            <TabContents>
-              <TabContent id="first" active={true}>タブ1の中身</TabContent>
-              <TabContent id="second">タブ2の中身</TabContent>
-            </TabContents>
-          </Tab>
+          <Tab tabItems={[
+            {
+              label: "タブ1",
+              id: "tab1",
+              panel: "タブ1の中身"
+            },
+            {
+              label: "タブ2",
+              id: "tab2",
+              panel: "タブ2の中身"
+            }
+          ]}
+          />
         </div>
       </main>
     </div>
