@@ -64,7 +64,8 @@ export function TabButtonInline({items, setActiveItem, activeItem}: TabButtonInl
               aria-selected="true"
               data-bs-toggle="tab"
               role="tab"
-              onClick={() => {
+              onClick={(event) => {
+                event.preventDefault();
                 setActiveItem(id)
               }}
             >

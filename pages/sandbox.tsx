@@ -6,6 +6,8 @@ import Tab from "../components/Tab";
 
 import { Accordion, AccordionItem } from "../components/Accordion";
 import {SingularAccordion} from "../components/SingularAccordion";
+import App from "../components/BootstrapTabNavigation";
+import TabNav from "../components/BootstrapTabNavigation/another";
 
 
 const Sandbox: NextPage = () => {
@@ -78,6 +80,9 @@ const Sandbox: NextPage = () => {
           ]}
                initialOpen={"tab2"}
           />
+          <App/>
+
+          <TabNav />
         </div>
       </main>
     </div>
