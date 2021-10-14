@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {MouseEvent, useState} from "react";
 
 interface TabProps {
   tabItems: {
@@ -15,9 +15,10 @@ interface TabProps {
  * @param initialOpen
  * @constructor
  */
-function Tab({ tabItems, initialOpen = tabItems[0].id }: TabProps) {
-  const [activeItem, setActiveItem] = useState(initialOpen);
-  console.log(activeItem)
+function Tab({ tabItems, initialOpen }: TabProps) {
+
+  const [activeItem, setActiveItem] = useState(initialOpen ?? tabItems[0]?.id ?? '' );
+
   return (
     <>
       <TabButtonInline
@@ -49,9 +50,9 @@ interface TabButtonInlineProps {
  * @param {string} activeItem 表示状態のタブのid
  */
 export function TabButtonInline({items, setActiveItem, activeItem}: TabButtonInlineProps) {
-  function handleClick (event: any) {
+  function handleClick (event: MouseEvent<HTMLAnchorElement> ) {
     event.preventDefault()
-    setActiveItem(event.target.getAttribute('data-id'))
+    setActiveItem(event.currentTarget.getAttribute('data-id') ?? '')
   }
   return (
     <nav>
@@ -60,7 +61,7 @@ export function TabButtonInline({items, setActiveItem, activeItem}: TabButtonInl
           return (
             <a
               key={id}
-              className={`nav-link ${activeItem === id ? 'active': ''}`}
+              className={`nav-link ${activeItem === id ? 'active' : ''}`}
               id={`nav-tab-${id}`}
               href={`#nav-${id}`}
               aria-controls={`nav-${id}`}
@@ -72,7 +73,7 @@ export function TabButtonInline({items, setActiveItem, activeItem}: TabButtonInl
             >
               {label}
             </a>
-          )
+          );
         })}
       </div>
     </nav>

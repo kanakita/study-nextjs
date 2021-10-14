@@ -76,6 +76,7 @@ const Sandbox: NextPage = () => {
               panel: "タブ2の中身"
             }
           ]}
+               initialOpen={"tab2"}
           />
         </div>
       </main>
