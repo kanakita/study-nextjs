@@ -9,6 +9,12 @@ interface TabProps {
   initialOpen?: string // 初期状態で開いているタブのid。指定が無い場合は1つ目のタブのidが入る
 }
 
+/**
+ * タブの親要素
+ * @param {Object} tabItems タブの配列
+ * @param initialOpen
+ * @constructor
+ */
 function Tab({ tabItems, initialOpen = tabItems[0].id }: TabProps) {
   const [activeItem, setActiveItem] = useState(initialOpen);
   console.log(activeItem)
@@ -36,8 +42,15 @@ interface TabButtonInlineProps {
   setActiveItem: (value: string) => void // 表示状態のタブのidをセットする関数
 }
 
+/**
+ * タブボタン
+ * @param {Object[]} items タブの配列
+ * @param {(value: string) => void} setActiveItem 表示状態のタブのidをセットする関数
+ * @param {string} activeItem 表示状態のタブのid
+ */
 export function TabButtonInline({items, setActiveItem, activeItem}: TabButtonInlineProps) {
   function handleClick (event: any) {
+    event.preventDefault()
     setActiveItem(event.target.getAttribute('data-id'))
   }
   return (
@@ -73,6 +86,12 @@ interface TabContentProps {
   }[],
   activeItem: string // 表示状態のタブのid
 }
+
+/**
+ * タブパネル
+ * @param {Object[]} items タブの配列
+ * @param {string} activeItem 表示状態のタブのid
+ */
 export function TabContent({items, activeItem}:TabContentProps) {
   return (
     <div className="tab-content">
