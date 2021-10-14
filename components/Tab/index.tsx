@@ -50,10 +50,6 @@ interface TabButtonInlineProps {
  * @param {string} activeItem 表示状態のタブのid
  */
 export function TabButtonInline({items, setActiveItem, activeItem}: TabButtonInlineProps) {
-  function handleClick (event: MouseEvent<HTMLAnchorElement> ) {
-    event.preventDefault()
-    setActiveItem(event.currentTarget.getAttribute('data-id') ?? '')
-  }
   return (
     <nav>
       <div className="nav nav-tabs" role="tablist">
@@ -68,8 +64,9 @@ export function TabButtonInline({items, setActiveItem, activeItem}: TabButtonInl
               aria-selected="true"
               data-bs-toggle="tab"
               role="tab"
-              onClick={handleClick}
-              data-id={id}
+              onClick={() => {
+                setActiveItem(id)
+              }}
             >
               {label}
             </a>
