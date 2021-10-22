@@ -8,6 +8,7 @@ import { Accordion, AccordionItem } from "../components/Accordion";
 import {SingularAccordion} from "../components/SingularAccordion";
 import App from "../components/BootstrapTabNavigation";
 import TabNav from "../components/BootstrapTabNavigation/another";
+import {SimpleGallery} from "../components/SimpleGallery";
 
 
 const Sandbox: NextPage = () => {
@@ -22,6 +23,32 @@ const Sandbox: NextPage = () => {
       </Head>
       <main>
         <div className="container">
+          <h2>画像スライド</h2>
+          <SimpleGallery
+            items={[
+              {
+                title: "1つ目のアイテム",
+                description: "説明1説明1説明1説明1説明1説明1説明1説明1",
+                imgPath: "https://placehold.jp/3697c7/ffffff/360x180.png?text=1枚目の画像"
+              },
+              {
+                title: "2つ目のアイテム",
+                description: "説明2説明2説明2説明2説明2説明2説明2説明2",
+                imgPath: "https://placehold.jp/f097c7/ffffff/360x180.png?text=2枚目の画像"
+              },
+              {
+                title: "3つ目のアイテム",
+                description: "説明3説明3説明3説明3説明3説明3説明3説明3",
+                imgPath: "https://placehold.jp/36970f/ffffff/360x180.png?text=3枚目の画像"
+              },
+              {
+                title: "4つ目のアイテム",
+                description: "説明4説明4説明4説明4説明4説明4説明4説明4",
+                imgPath: "https://placehold.jp/363fc7/ffffff/360x180.png?text=4枚目の画像"
+              }
+            ]}
+          />
+
           <h2>ボタン</h2>
           <BootstrapButton label={"ボタン"}/>
           <h2>トグルボタン</h2>
